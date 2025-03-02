@@ -2,13 +2,9 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Mail, Lock, User, Loader } from 'lucide-react';
 
-interface AuthModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-  mode: 'login' | 'signup';
-}
 
-export default function AuthModal({ isOpen, onClose, mode }: AuthModalProps) {
+
+export default function AuthModal({ isOpen, onClose, mode }) {
   const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     email: '',
@@ -16,7 +12,7 @@ export default function AuthModal({ isOpen, onClose, mode }: AuthModalProps) {
     name: '',
   });
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
     // Implement auth logic here

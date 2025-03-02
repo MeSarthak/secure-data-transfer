@@ -7,12 +7,12 @@ import RoomPage from './pages/RoomPage';
 import AuthModal from './components/AuthModal';
 
 function App() {
-  const [authModal, setAuthModal] = useState<{ isOpen: boolean; mode: 'login' | 'signup' }>({
+  const [authModal, setAuthModal] = useState({
     isOpen: false,
     mode: 'login'
   });
 
-  const openAuthModal = (mode: 'login' | 'signup') => {
+  const openAuthModal = (mode) => {
     setAuthModal({ isOpen: true, mode });
   };
 

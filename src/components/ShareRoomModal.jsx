@@ -2,18 +2,11 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Copy, Check, Link as LinkIcon } from 'lucide-react';
 
-interface ShareRoomModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-  roomId: string;
-  password: string;
-}
-
-export default function ShareRoomModal({ isOpen, onClose, roomId, password }: ShareRoomModalProps) {
+export default function ShareRoomModal({ isOpen, onClose, roomId, password }) {
   const [copied, setCopied] = useState(false);
   const roomLink = `${window.location.origin}/room/${roomId}`;
 
-  const copyToClipboard = async (text: string) => {
+  const copyToClipboard = async (text) => {
     try {
       await navigator.clipboard.writeText(text);
       setCopied(true);

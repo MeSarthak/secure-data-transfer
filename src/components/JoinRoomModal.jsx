@@ -3,19 +3,16 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { X, Link as LinkIcon, Lock, Loader } from 'lucide-react';
 
-interface JoinRoomModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-}
 
-export default function JoinRoomModal({ isOpen, onClose }: JoinRoomModalProps) {
+
+export default function JoinRoomModal({ isOpen, onClose }) {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [roomId, setRoomId] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
     setIsLoading(true);

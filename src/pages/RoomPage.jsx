@@ -8,7 +8,7 @@ function RoomPage() {
   const { id } = useParams();
   const navigate = useNavigate();
   const [message, setMessage] = useState('');
-  const [files, setFiles] = useState<File[]>([]);
+  const [files, setFiles] = useState([]);
   const [isShareModalOpen, setIsShareModalOpen] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -22,7 +22,7 @@ function RoomPage() {
 
   const roomPassword = localStorage.getItem(`room_${id}`) || '';
 
-  const handleDrop = (e: React.DragEvent) => {
+  const handleDrop = (e) => {
     e.preventDefault();
     const droppedFiles = Array.from(e.dataTransfer.files);
     setFiles(prev => [...prev, ...droppedFiles]);
@@ -99,7 +99,7 @@ function RoomPage() {
             type="file"
             ref={fileInputRef}
             className="hidden"
-            onChange={(e) => e.target.files && setFiles(prev => [...prev, ...Array.from(e.target.files!)])}
+            onChange={(e) => e.target.files && setFiles(prev => [...prev, ...Array.from(e.target.files)])}
             multiple
           />
           <input
